@@ -19,7 +19,7 @@ np.set_printoptions(precision=4)
 
 parser = argparse.ArgumentParser(description='Train WaveNet of LJSpeech',
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-parser.add_argument('--data_path', type=str, default='./DATASETS/ljspeech/', help='Dataset Path')
+parser.add_argument('--data_path', type=str, default='./dataset/', help='Dataset Path')
 parser.add_argument('--sample_path', type=str, default='./samples', help='Sample Path')
 parser.add_argument('--save', '-s', type=str, default='./params', help='Folder to save checkpoints.')
 parser.add_argument('--load', '-l', type=str, default='./params', help='Checkpoint path to resume / test.')
