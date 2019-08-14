@@ -25,7 +25,7 @@ def build_from_path(in_dir, out_dir, num_workers=1):
 
 def _process_utterance(out_dir, index, wav_path, text):
     # Load the audio to a numpy array:
-    wav, sr = librosa.load(wav_path, sr=22050)
+    wav, sr = librosa.load(wav_path, sr=24000)
 
     wav = wav / np.abs(wav).max() * 0.999
     out = wav
@@ -84,7 +84,7 @@ def write_metadata(metadata, out_dir):
         for m in metadata:
             f.write('|'.join([str(x) for x in m]) + '\n')
     frames = sum([m[2] for m in metadata])
-    sr = 22050
+    sr = 24000
     hours = frames / sr / 3600
     print('Wrote %d utterances, %d time steps (%.2f hours)' % (len(metadata), frames, hours))
     print('Max input length:  %d' % max(len(m[3]) for m in metadata))
